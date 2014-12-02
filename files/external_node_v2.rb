@@ -331,6 +331,13 @@ if __FILE__ == $0 then
         puts yaml.to_yaml
       else
         puts result
+        # output hostgroup tree variables
+        re = /hostgroup: ([A-Za-z\/]*)/
+        hostgroups = result.match(re)[1].split('/')
+        # split hostgroups and print them
+        hostgroups.each_with_index do |v,k|
+            puts "  hostgroup_#{k}: #{v}"
+        end
       end
     end
   rescue => e
