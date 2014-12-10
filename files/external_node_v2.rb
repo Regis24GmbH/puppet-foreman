@@ -331,6 +331,7 @@ if __FILE__ == $0 then
         puts yaml.to_yaml
       else
         puts result
+        re = /hostgroup: ([A-Za-z\/]*)/
         if result.match(re)
             hostgroups = result.match(re)[1].split('/')
             # split hostgroups and print them
